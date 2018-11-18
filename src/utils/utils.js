@@ -11,6 +11,7 @@ export const isNotNullORBlank = (...args)=> {
   }
   return true;
 }
+//初始化菜单
 export const initMenu = (router, store)=> {
   if (store.state.routes.length > 0) {
     return;
@@ -24,6 +25,7 @@ export const initMenu = (router, store)=> {
     }
   })
 }
+//定义路由通用跳转
 export const formatRoutes = (routes)=> {
   let fmRoutes = [];
   routes.forEach(router=> {
@@ -53,6 +55,8 @@ export const formatRoutes = (routes)=> {
           require(['../components/statistics/' + component + '.vue'], resolve)
         } else if (component.startsWith("Sys")) {
           require(['../components/system/' + component + '.vue'], resolve)
+        }else if (component.startsWith("Menu")) {
+          require(['../components/menu/' + component + '.vue'], resolve)
         }
       },
       name: name,
